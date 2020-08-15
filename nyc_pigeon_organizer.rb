@@ -1,15 +1,15 @@
 
 def nyc_pigeon_organizer(data)
-  pigeon_names = data.each_with_object({}) do |(keys, values_hash), pigeon_array|
+  pigeon_names = data.each_with_object({}) do |(keys, values_hash), pigeon_hash|
     values_hash.each do |inner_keys, name_value_array|
       name_value_array.each do |name|
-        if !pigeon_array[name]
-          pigeon_array[name] = {}
+        if !pigeon_hash[name]
+          pigeon_hash[name] = {}
         end
-        if !pigeon_array[name][keys]
-          !pigeon_array[name][keys] = []
+        if !pigeon_hash[name][keys]
+          !pigeon_hash[name][keys] = []
         end
-        pigeon_array[name][keys].push(inner_keys.to_s)
+        pigeon_hash[name][keys].push(inner_keys.to_s)
       end
     end
   end
